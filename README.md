@@ -1,71 +1,90 @@
-# 📈 Real-Time Stock Dashboard
+# 📊 Stock Data ETL Pipeline
 
-Project Overview
+**Real-time Stock Data Extraction, Transformation, Loading, and Visualization Project**
 
-    This project is a **real-time stock price dashboard** built using **Python**, **SQLite**, and **Streamlit**.  
-    It fetches stock data from the `yfinance` API, stores it in a **SQLite database**, and visualizes it interactively.  
+---
 
-The dashboard allows users to:  
-- View recent stock prices  
-- Plot **Close Price** over time  
-- Plot **20-period Moving Average**  
-- Plot **Volume**  
-- Select multiple stocks using a dropdown  
+## **Project Overview**
 
-This mini-project demonstrates a complete **data engineering pipeline** from **data extraction → storage → visualization**.
+This project demonstrates a complete **Data Engineering ETL pipeline** for stock market data. It fetches stock data in real-time, cleans and transforms it, calculates key metrics, stores it in a database, and visualizes insights through an interactive dashboard. Perfect for building your **portfolio and impressing recruiters**.
 
-## Features
-- Minute-level stock data extraction using `yfinance`  
-- SQLite database storage for efficient data management  
-- Interactive Streamlit dashboard  
-- Moving Average analysis  
-- Volume visualization  
-- Dropdown to select multiple stocks  
+---
 
-## Tools & Technologies
-| Tool | Purpose |
-|------|---------|
-| Python | Main programming language |
-| yfinance | Fetch stock data from Yahoo Finance |
-| SQLite | Store stock data |
-| Pandas | Data processing and analysis |
-| Streamlit | Dashboard visualization |
-| VS Code | Development environment |
+## **ETL Pipeline Steps**
 
-## Installation & Usage
+1. **Extract (fetch_raw_data.py / stock_fetch_minute.py)**
 
-1. **Clone the repository**
+   * Fetches minute-level stock data from Yahoo Finance using Python `yfinance`.
 
-git clone https://github.com/shijithajenifer/stock-dashboard.git
+2. **Transform (transform_data.py)**
 
-cd stock_project
+   * Cleans raw data, calculates **Daily Returns** and **5-day Moving Averages**.
 
-2. Create virtual environment
+3. **Load (load_to_db.py)**
 
-     python -m venv venv
+   * Loads transformed data into **SQLite database** (`stock_data.db`).
 
-3.Activate virtual environment
+4. **Visualize (dashboard.py)**
 
-     # Windows PowerShell
-     venv\Scripts\Activate.ps1
+   * Interactive **Streamlit dashboard** showing:
 
-4.Install dependencies
+     * Stock close prices
+     * Daily returns
+     * Moving averages
+   * Users can select different tickers from the sidebar.
 
-     pip install yfinance pandas matplotlib streamlit
+---
 
-5.Fetch stock data
+## **Tech Stack**
 
-     python stock_fetch_minute.py
+* Python
+* Pandas
+* SQLite
+* Streamlit
+* Matplotlib & Seaborn
 
-6.Run the dashboard
 
-     streamlit run dashboard.py
+## **How to Run**
 
-7.Open the browser to interact with the dashboard
+1. Clone the repository:
 
-Future Enhancements
+```bash
+git clone https://github.com/yourusername/stock_data_etl_pipeline_v2.git
+cd stock_data_etl_pipeline_v2
+```
 
-   -  Compare multiple stocks in a single chart
-   -  Auto-refresh data for live updates
-   -  Add predictive analytics
-   -  Deploy dashboard online using Streamlit Cloud
+2. Activate virtual environment:
+
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run ETL pipeline:
+
+```bash
+python stock_fetch_minute.py
+python transform_data.py
+python load_to_db.py
+```
+
+5. Run the dashboard:
+
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+## **Outcome**
+
+* Fully automated **stock data ETL pipeline**.
+* Interactive visualization dashboard for stock analysis.
+* Resume & portfolio-ready Data Engineering project.
